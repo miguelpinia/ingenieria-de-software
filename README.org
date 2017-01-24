@@ -1,0 +1,6 @@
+#+title: Ingeniería de Software
+#+author: Miguel Piña
+#+date: [2017-01-23 lun 20:20]
+
+Repositorio para material de apoyo para el laboratorio del curso de Ingeniería
+de Software, impartido en la Facultad de Ciencias de la UNAM.
