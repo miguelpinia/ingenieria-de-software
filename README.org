@@ -2,5 +2,9 @@
 #+author: Miguel Piña
 #+date: [2017-01-23 lun 20:20]
 
-Repositorio para material de apoyo para el laboratorio del curso de Ingeniería
-de Software, impartido en la Facultad de Ciencias de la UNAM.
+Repositorio con material de apoyo para el laboratorio del curso de ingeniería de
+Software.
+
+- Profesora :: [[mailto:hanna.oktaba@ciencias.unam.mx][Hanna Oktaba]]
+- Ayudante :: [[mailto:isael191@gmail.com][Isael Durán]]
+- Ayudante de laboratorio :: [[mailto:miguel_pinia@ciencias.unam.mx][Miguel Angel Piña Avelino]]
