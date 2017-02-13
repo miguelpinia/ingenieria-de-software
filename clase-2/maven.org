@@ -283,3 +283,17 @@ código al archivo pom.xml
     <scope>provided</scope>
   </dependency>
 #+end_src
+
+Lo anterior va a agregar todas las dependencias necesarias para poder construir
+de nueva cuenta nuestro proyecto:
+
+#+BEGIN_SRC sh
+mvn clean install
+mvn tomcat:run
+#+END_SRC
+
+Y entramos a la url
+
+#+BEGIN_EXAMPLE
+http://localhost:8080/mi-primer-aplicacion-web/foo
+#+END_EXAMPLE
