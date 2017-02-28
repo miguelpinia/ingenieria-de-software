@@ -1,0 +1,101 @@
+#+title: Clase 4: Base de datos y JPA
+#+author: Miguel Piña
+#+date: [2017-02-26 dom 19:02]
+
+
+
+* Instalando mysql
+
+Vamos a comenzar a trabajar con la base de datos, la base de datos con la que
+estaremos trabajando con mysql.
+
+Para instalarlo en distribuciones tipo Debian, debería de bastar la siguiente
+instrucción:
+
+#+begin_src sh
+sudo apt-get install mysql-server
+#+end_src
+
+Durante la instalación, va a solicitar la contraseña de superusuario. Se la
+damos. Al finalizar la instalación, vamos a correr un script que se encarga de
+asegurar nuestra instalación:
+
+#+begin_src sh
+mysql_secure_installation
+#+end_src
+
+En ella se va a definir las políticas de seguridad que van a estar presente en
+nuestra sistema manejador de base de datos.
+
+Comprobamos la instalación con:
+
+#+begin_src sh
+service mysql status
+#+end_src
+
+* Creando una base de datos
+
+La forma de iniciar sesión en MySQL es a través de la terminal, en la que vamos
+a acceder de la siguiente forma:
+
+#+begin_src sh
+mysql -u root -p
+#+end_src
+
+y una vez dentro creamos una base de datos con la cual podremos trabajar para
+realizar nuestro proyecto
+
+#+begin_src sql
+create database my_db;
+#+end_src
+
+Creamos un usuario con el cual vamos a estar iniciando sesión y nos va a servir
+más adelante para realizar consultas, inserciones y otras operaciones en la base
+de datos:
+
+#+begin_src sql
+create user 'miguel'@'localhost' identified by 'miguelfoo';
+grant all privileges on my_db.* to miguel@localhost ;
+#+end_src
+
+Vamos a crear dos tablas de ejemplo:
+
+#+begin_src sql
+  use my_db;
+
+  drop table if exists persona;
+
+  create table if not exists persona (
+    id serial primary key,
+    nombre varchar(255) not null,
+    apellido1 varchar(255) not null,
+    apellido2 varchar(255) not null
+  ) engine=InnoDB default charset=utf8;
+
+  drop table if exists usuario;
+
+  create table if not exists usuario (
+    id serial primary key,
+    usuario varchar(255) not null,
+    contraseña varchar(255) not null,
+    persona_id bigint(20) unsigned not null,
+    foreign key(persona_id) references persona(id)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+#+end_src
+
+- Nota :: en MySQL los esquemas son equivalentes a las bases de datos.
+
+* JPA
+
+** ¿Qué es JPA?
+
+Java Persistence API (JPA) es una herramienta que provee a los desarrolladores
+java facilidades para realizar mapeos entre relaciones y objetos
+(object/relational mapping) en aplicaciones Java.
+
+** ¿Donde usar JPA?
+
+Para reducir la carga de escribir código para gestiónar la interacción entre la
+base de datos y el código en Java, el trabajo relacional de objetos, un
+programador usa el framework JPA, lo que permite una fácil interacción con
+instancias de base de datos y las aplicaciones en Java.
