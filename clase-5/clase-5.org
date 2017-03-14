@@ -1,4 +1,4 @@
-#+title: Clase 5: Servlets, JSP y JavaScript
+#+title: Clase 5: Servlets, JSP y JSF
 #+author: Miguel Piña
 #+date: [2017-03-12 dom 12:49]
 #+setupfile: ~/proyectos/org-html-themes/setup/theme-bigblow.setup
