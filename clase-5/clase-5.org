@@ -322,3 +322,13 @@ de validación de contraseñas.
     </h:body>
   </html>
 #+end_src
+
+Y terminamos levantando nuestro sitio con:
+
+#+begin_src
+mvn tomcat7:run
+#+end_src
+
+E ingresamos a la siguiente url.
+
+http://localhost:8080/mi-primer-aplicacion-web/registro.xhtml
