@@ -1,4 +1,4 @@
-#+title: CSS, JavaScript y Google Maps
+#+title: CSS: Bootsfaces
 #+author: Miguel Piña
 #+date: [2017-03-27 lun 12:52]
 
