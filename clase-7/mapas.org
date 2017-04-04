@@ -1,0 +1,55 @@
+#+title: JavaScript y Google Maps
+#+author: Miguel Piña
+#+date: [2017-04-03 lun 21:51]
+#+setupfile: ~/proyectos/org-html-themes/setup/theme-bigblow.setup
+
+* ¿Qué es JavaScript?
+
+JavaScript (abreviado comúnmente JS) es un lenguaje de programación
+interpretado, dialecto del estándar ECMAScript. Se define como orientado a
+objetos,3 basado en prototipos, imperativo, débilmente tipado y dinámico.
+
+Se utiliza principalmente en su forma del lado del cliente (client-side),
+implementado como parte de un navegador web permitiendo mejoras en la interfaz
+de usuario y páginas web dinámicas4 aunque existe una forma de JavaScript del
+lado del servidor(Server-side JavaScript o SSJS).
+
+Todos los navegadores modernos interpretan el código JavaScript integrado en las
+páginas web. Para interactuar con una página web se provee al lenguaje
+JavaScript de una implementación del Document Object Model (DOM).
+
+* Ajax
+
+AJAX, acrónimo de Asynchronous JavaScript And XML (JavaScript asíncrono y XML),
+es una técnica de desarrollo web para crear aplicaciones interactivas o RIA
+(Rich Internet Applications). Estas aplicaciones se ejecutan en el cliente, es
+decir, en el navegador de los usuarios mientras se mantiene la comunicación
+asíncrona con el servidor en segundo plano. De esta forma es posible realizar
+cambios sobre las páginas sin necesidad de recargarlas, mejorando la
+interactividad, velocidad y usabilidad en las aplicaciones.
+
+Ajax es una tecnología asíncrona, en el sentido de que los datos adicionales se
+solicitan al servidor y se cargan en segundo plano sin interferir con la
+visualización ni el comportamiento de la página, aunque existe la posibilidad de
+configurar las peticiones como síncronas de tal forma que la interactividad de
+la página se detiene hasta la espera de la respuesta por parte del servidor.
+
+Ajax es una técnica válida para múltiples plataformas y utilizable en muchos
+sistemas operativos y navegadores dado que está basado en estándares abiertos
+como JavaScript y Document Object Model (DOM).
+
+* Google Maps
+
+La tecnología provista por Google Maps que ofrece para interactuar con su API es
+a través de Javascript. Para hacer uso, hay que crear una llave para gestionar
+el número de llamadas a su API. Esa llave es única para cada proyecto.
+
+En la siguiente página puede consultar su API y modo de uso.
+
+https://developers.google.com/maps/?hl=es-419
+
+Sin embargo, Primefaces ofrece componentes para usar Google Maps de forma
+sencilla y además integrándola con los componentes y tecnología que ya provee.
+
+En el repositorio de ejemplo-maven, se agrego un ejemplo de Google Maps que se
+encarga de crear Markers en los mapas y estos se almacenan en la base de datos.
