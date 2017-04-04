@@ -1,7 +1,6 @@
 #+title: JavaScript y Google Maps
 #+author: Miguel Piña
 #+date: [2017-04-03 lun 21:51]
-#+setupfile: ~/proyectos/org-html-themes/setup/theme-bigblow.setup
 
 * ¿Qué es JavaScript?
 
