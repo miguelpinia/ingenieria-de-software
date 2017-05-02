@@ -1,0 +1,66 @@
+#+title: Manejo de sesiones
+#+author: Miguel Piña
+#+date: [2017-05-02 mar 06:52]
+
+* ¿Qué es una sesión?
+
+Una sesión es un mecanismo que permite el registro de acciones e información de
+un cliente con un servidor. El tiempo de vida de una sesión generalmente inicia
+cuando un cliente se conecta por primera con un servidor, pero su finalización
+puede estar asociada a tres circunstancias:
+
+- El cliente abandona el sitio web
+- Cuando se alcanza un tiempo de inactividad
+- Se ha cerrado o reiniciado el servidor
+
+En java, existe un conjunto de bibliotecas que permiten a los desarrolladores el
+gestionar como se debería de comportar una sesión y que elementos se pueden
+almacenar dentro de ella.
+
+Todas las sesiones de Java implementan HTTPSession y se puede obtener la sesión
+a partir de métodos como /request.getSession()/.
+
+Vamos a ver unos ejemplos usando Java Server Faces
+
+* Obteniendo una sesión
+
+Una vez que ya estamos trabajando en la implementación de un sitio web con Java
+Server Faces, podemos hacer lo siguiente para obtener una sesión web.
+
+#+begin_src java
+  // Importamos lo que necesitamos
+  import javax.faces.context.FacesContext;
+  import javax.servlet.http.HTTPSession;
+  import javax.servlet.http.HTTPServletRequest;
+
+  // Todo el código intermedio
+
+  private HTTPSession _session;
+  private HTTPServletRequest _request;
+  private FacesContext _context;
+
+  // Iniciamos la sesión
+  public Constructor() {
+      _context = FacesContext.getCurrentInstance();
+      _request = (HTTPServletRequest) _context.getExternalContext().getRequest();
+      _session = (HTTPSession) _request.getSession();
+  }
+#+end_src
+
+La forma más sencilla de ver a la sesión dentro de la aplicación web, es como un
+hashtable que lleva una serie de atributos asociados cada uno a sus respectivas
+llaves.
+
+* Métodos comunes de HTTPSession
+
+- getAttribute(String name) :: Regresa el objeto asociado a la llave *name*.
+- setAttributte(String name, Object Value) :: Establece el valor *value* a la
+     llave *name*.
+- remoteAttribute(String name) :: Elimina el valor asociado a la llave *name*.
+
+Como recomendación, hay que tener un número pequeño de objetos asociados a una
+sesión, además de que dichos objetos deben ser lo más simple posibles.
+
+Para páginas que requieran de información, esta debería ser cargada desde la
+base de datos e idealmente, el paso de parámetros para obtener dicha información
+debería ser hecha a través de peticiones *GET* o *POST*.
