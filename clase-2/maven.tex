@@ -3,10 +3,10 @@
 \usepackage{verbatim}
 \usepackage{minted}
 \usepackage[spanish]{babel}
-\usetheme{Goettingen}
-\usecolortheme{default}
+\usetheme{Antibes}
+\usecolortheme{rose}
 \useoutertheme{shadow}
-\useinnertheme{rectangles}
+\useinnertheme{circles}
 \graphicspath{ {./figures/} }
 \title[Laboratorio]{Maven}
 \author[Miguel]{Miguel Angel Piña Avelino}
@@ -254,21 +254,21 @@ Estableciendo el archivo main dentro del proyecto.
   \frametitle{Incluyendo un servidor HTTP}
   Para ejecutarlo, primero hay que construir el proyecto
 
-\begin{minted}{sh}
+\begin{minted}[fontsize=\small]{sh}
 mvn clean install
 \end{minted}
 
 y después verificar que funciona
 
-\begin{minted}{sh}
+\begin{minted}[fontsize=\small]{sh}
 mvn tomcat:run
 \end{minted}
 
 En un navegador web entramos a la url
 
-\begin{verbatim}
+\begin{minted}[fontsize=\small]{sh}
 http://localhost:8080/mi-primer-aplicacion-web/
-\end{verbatim}
+\end{minted}
 
 \end{frame}
 
@@ -401,16 +401,16 @@ código al archivo pom.xml
   Lo anterior va a agregar todas las dependencias necesarias para poder construir
   de nueva cuenta nuestro proyecto:
 
-\begin{minted}[fontsize=\scriptsize]{sh}
+\begin{minted}[fontsize=\small]{sh}
 mvn clean install
 mvn tomcat:run
 \end{minted}
 
 Y entramos a la url
 
-\begin{verbatim}
+\begin{minted}[fontsize=\small]{sh}
 http://localhost:8080/mi-primer-aplicacion-web/foo
-\end{verbatim}
+\end{minted}
 
 \end{frame}
 
