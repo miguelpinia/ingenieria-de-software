@@ -3,14 +3,15 @@
 \usepackage{verbatim}
 \usepackage{minted}
 \usepackage[spanish]{babel}
-\usetheme{Antibes}
-\usecolortheme{rose}
+\usetheme{Frankfurt}
+\usecolortheme{seahorse}
 \useoutertheme{shadow}
 \useinnertheme{circles}
 \graphicspath{ {./figures/} }
 \title[Laboratorio]{Maven}
 \author[Miguel]{Miguel Angel Piña Avelino}
 \institute[UNAM]{
+  Ingeniería de Software,\\
   Facultad de Ciencias, UNAM
 }
 \AtBeginSection[]{
@@ -29,11 +30,12 @@
 \begin{document}
 
 \frame{\titlepage}
-
 \begin{frame}
   \frametitle{Índice}
   \tableofcontents
 \end{frame}
+
+\section{¿Qué es Maven?}
 
 \begin{frame}
   \frametitle{¿Qué es Maven?}
@@ -47,6 +49,8 @@
   \end{itemize}
 \end{frame}
 
+\section{Filosofía de Maven}
+
 \begin{frame}
   \frametitle{Filosofía de Maven}
   \begin{itemize}[<+->]
@@ -57,6 +61,8 @@
   \item Los proyectos complejos y existentes podrían no ser adaptables a Maven.
   \end{itemize}
 \end{frame}
+
+\section{¿Cómo funciona Maven?}
 
 \begin{frame}[fragile]
   \frametitle{¿Cómo funciona Maven?}
@@ -112,6 +118,8 @@
    \item \textbf{Site-deploy}: Sube el sitio web anterior.
    \end{itemize}
  \end{frame}
+
+\section{Creando un primer proyecto en Maven}
 
 \begin{frame}[fragile]
    \frametitle{Creando un primer proyecto en Maven}
@@ -183,6 +191,8 @@ Estableciendo el archivo main dentro del proyecto.
   % \end{figure}
 
 \end{frame}
+
+\section{Creando un proyecto web con Maven}
 
 \begin{frame}[fragile]
   \frametitle{Creando un proyecto web con Maven}
