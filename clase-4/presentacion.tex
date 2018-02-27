@@ -207,13 +207,23 @@ $ git branch -d mi_nueva_rama
 
 \begin{frame}
   \frametitle{Primefaces}
-
    PrimeFaces es una librería de componentes para JavaServer Faces
    (JSF) de código abierto que cuenta con un conjunto de componentes
    enriquecidos que facilitan la creación de las aplicaciones
    web. Primefaces está bajo la licencia de Apache License V2. Una de las
    ventajas de utilizar Primefaces, es que permite la integración con
    otros componentes como por ejemplo RichFaces.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Documentación}
+  \begin{block}{JavaServer Faces Technology}
+    https://docs.oracle.com/javaee/7/tutorial/jsf-intro.htm
+  \end{block}
+
+  \begin{block}{Primefaces}
+    http://primefaces.org/
+  \end{block}
 \end{frame}
 
 \section{Integrando JSF}
@@ -470,6 +480,14 @@ $ git branch -d mi_nueva_rama
       <h:form id="myForm">
         <table>
           <tr>
+            <td>
+              <p:messages id="messages" autoUpdate="true"
+                          closable="true" />
+            </td>
+          </tr>
+        </table>
+        <table>
+          <tr>
             <td>Nombre de usuario</td>
             <td><p:inputText
                  value="#{registerController.user.usuario}"
@@ -481,18 +499,18 @@ $ git branch -d mi_nueva_rama
                  value="#{registerController.user.contraseña}"
                  required="true" feedback="true" id="Password"/></td>
           </tr>
-          <tr>
-            <td>Confirmar Contraseña</td>
-            <td><p:password
-                 value="#{registerController.user. confirmacionContraseña}"
-                required="true" feedback="true" id="ConfirmPassword"/></td>
-          </tr>
   \end{minted}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Integrando JSF con Maven}
   \begin{minted}[fontsize=\scriptsize]{html}
+          <tr>
+            <td>Confirmar Contraseña</td>
+            <td><p:password
+                 value="#{registerController.user. confirmacionContraseña}"
+                required="true" feedback="true" id="ConfirmPassword"/></td>
+          </tr>
           <tr>
             <td colspan="2" align="center">
               <p:commandButton action="#{registerController.addUser}"
@@ -501,14 +519,6 @@ $ git branch -d mi_nueva_rama
                                process="@this">
                 <p:resetInput target="myForm" />
               </p:commandButton>
-            </td>
-          </tr>
-        </table>
-        <table>
-          <tr>
-            <td>
-              <p:messages id="messages" autoUpdate="true"
-                          closable="true" />
             </td>
           </tr>
         </table>
