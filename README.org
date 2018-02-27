@@ -6,5 +6,16 @@ Repositorio con material de apoyo para el laboratorio del curso de ingeniería d
 Software.
 
 - Profesora :: [[mailto:hanna.oktaba@ciencias.unam.mx][Hanna Oktaba]]
-- Ayudante :: [[mailto:isael191@gmail.com][Isael Durán]]
+- Ayudante :: Pablo Gerardo Gonzalez Lopez, Diana Giselle Hidalgo Lopez
 - Ayudante de laboratorio :: [[mailto:miguel_pinia@ciencias.unam.mx][Miguel Angel Piña Avelino]]
+
+* Presentaciones
+
+- [[file:clase-1/presentacion.pdf][Introducción]]
+- [[file:clase-2/maven.pdf][Maven]]
+- [[file:clase-3/presentacion.pdf][Git]]
+- [[file:clase-4/presentacion.pdf][Java Server Faces]]
+
+* Prácticas
+
+- [[file:practicas/1/practica-1.pdf][Práctica 1]]
