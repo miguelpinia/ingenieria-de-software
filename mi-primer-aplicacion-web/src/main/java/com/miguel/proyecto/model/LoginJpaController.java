@@ -10,8 +10,8 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
@@ -132,6 +132,14 @@ public class LoginJpaController implements Serializable {
         } finally {
             em.close();
         }
+    }
+
+    public boolean canLogin(String usuario, String contraseña) {
+        EntityManager em = getEntityManager();
+        Query q = em.createNamedQuery("Login.canLogin")
+                .setParameter(1, usuario)
+                .setParameter(2, contraseña);
+        return (boolean) q.getSingleResult();
     }
 
 }
