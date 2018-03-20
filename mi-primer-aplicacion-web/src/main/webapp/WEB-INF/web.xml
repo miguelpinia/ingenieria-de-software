@@ -1,64 +1,74 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee                              http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+  <display-name>Archetype Created Web Application</display-name>
+  <context-param>
+    <param-name>javax.faces.PROJECT_STAGE</param-name>
+    <param-value>Development</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>/faces/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.xhtml</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>servlet</servlet-name>
+    <servlet-class>com.miguel.proyecto.Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>servlet</servlet-name>
+    <url-pattern>/foo</url-pattern>
+  </servlet-mapping>
 
-<web-app>
-    <display-name>Archetype Created Web Application</display-name>
-    <context-param>
-        <param-name>javax.faces.PROJECT_STAGE</param-name>
-        <param-value>Development</param-value>
-    </context-param>
-    <servlet>
-        <servlet-name>Faces Servlet</servlet-name>
-        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>/faces/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>*.xhtml</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>servlet</servlet-name>
-        <servlet-class>com.miguel.proyecto.Servlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>servlet</servlet-name>
-        <url-pattern>/foo</url-pattern>
-    </servlet-mapping>
+  <!-- Welcome page -->
+  <welcome-file-list>
+    <welcome-file>index.xhtml</welcome-file>
+  </welcome-file-list>
 
-    <!-- Welcome page -->
-    <welcome-file-list>
-        <welcome-file>index.xhtml</welcome-file>
-    </welcome-file-list>
+  <!-- web fonts -->
+  <mime-mapping>
+    <extension>eot</extension>
+    <mime-type>application/vnd.ms-fontobject</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>otf</extension>
+    <mime-type>font/opentype</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>ttf</extension>
+    <mime-type>application/x-font-ttf</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>woff</extension>
+    <mime-type>application/x-font-woff</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>svg</extension>
+    <mime-type>image/svg+xml</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>ico</extension>
+    <mime-type>image/x-icon</mime-type>
+  </mime-mapping>
 
-    <!-- web fonts -->
-    <mime-mapping>
-        <extension>eot</extension>
-        <mime-type>application/vnd.ms-fontobject</mime-type>
-    </mime-mapping>
-    <mime-mapping>
-        <extension>otf</extension>
-        <mime-type>font/opentype</mime-type>
-    </mime-mapping>
-    <mime-mapping>
-        <extension>ttf</extension>
-        <mime-type>application/x-font-ttf</mime-type>
-    </mime-mapping>
-    <mime-mapping>
-        <extension>woff</extension>
-        <mime-type>application/x-font-woff</mime-type>
-    </mime-mapping>
-    <mime-mapping>
-        <extension>svg</extension>
-        <mime-type>image/svg+xml</mime-type>
-    </mime-mapping>
-    <mime-mapping>
-        <extension>ico</extension>
-        <mime-type>image/x-icon</mime-type>
-    </mime-mapping>
+  <!-- aplicamos el filtro sobre las páginas deseadas.-->
+  <filter>
+    <filter-name>SessionFilter</filter-name>
+    <filter-class>com.miguel.proyecto.web.SessionFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>SessionFilter</filter-name>
+    <url-pattern>/secured/*</url-pattern>
+  </filter-mapping>
 
+  <session-config>
+    <session-timeout>60</session-timeout>
+  </session-config>
 </web-app>

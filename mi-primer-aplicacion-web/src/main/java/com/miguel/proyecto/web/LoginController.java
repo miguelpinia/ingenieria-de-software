@@ -49,7 +49,7 @@ public class LoginController {
         if (logged) {
             FacesContext context = getCurrentInstance();
             context.getExternalContext().getSessionMap().put("usuario", l);
-            return "inicio?faces-redirect=true";
+            return "secured/inicio?faces-redirect=true";
         }
         return "registro?faces-redirect=true";
     }
