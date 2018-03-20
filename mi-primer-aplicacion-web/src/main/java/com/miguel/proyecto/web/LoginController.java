@@ -6,12 +6,15 @@
 package com.miguel.proyecto.web;
 
 import com.miguel.proyecto.model.EntityProvider;
+import com.miguel.proyecto.model.Login;
 import com.miguel.proyecto.model.LoginJpaController;
 import java.util.Locale;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.persistence.EntityManagerFactory;
+
+import static javax.faces.context.FacesContext.getCurrentInstance;
 
 /**
  *
@@ -41,11 +44,14 @@ public class LoginController {
     }
 
     public String canLogin() {
-        boolean logged = jpaController.canLogin(usuario.getUsuario(), usuario.getContraseña());
+        Login l = jpaController.findLogin(usuario.getUsuario(), usuario.getContraseña());
+        boolean logged = l != null;
         if (logged) {
-            return "inicio";
+            FacesContext context = getCurrentInstance();
+            context.getExternalContext().getSessionMap().put("usuario", l);
+            return "inicio?faces-redirect=true";
         }
-        return "registro";
+        return "registro?faces-redirect=true";
     }
 
 }
