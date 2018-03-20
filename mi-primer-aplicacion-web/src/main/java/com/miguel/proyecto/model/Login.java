@@ -32,11 +32,16 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Login.findAll", query = "SELECT l FROM Login l")
     , @NamedQuery(name = "Login.findById", query = "SELECT l FROM Login l WHERE l.id = :id")
     , @NamedQuery(name = "Login.findByUsuario", query = "SELECT l FROM Login l WHERE l.usuario = :usuario")
-    , @NamedQuery(name = "Login.findByPass", query = "SELECT l FROM Login l WHERE l.pass = :pass")})
+    , @NamedQuery(name = "Login.findByPassword", query = "SELECT l FROM Login l WHERE l.password = :pass")})
 @NamedNativeQueries(value = {
     @NamedNativeQuery(
             name = "Login.canLogin",
             query = "select login.login(?, ?)"
+    )
+    , @NamedNativeQuery(
+            name = "Login.findByUsuarioAndPassword",
+            query = "select id, usuario from login.login where usuario = ?1 and password = crypt(?2, password)",
+            resultClass = Login.class
     )
 })
 public class Login implements Serializable {
@@ -52,7 +57,7 @@ public class Login implements Serializable {
     private String usuario;
     @Basic(optional = false)
     @Column(nullable = false, length = 2147483647)
-    private String pass;
+    private String password;
 
     public Login() {
     }
@@ -64,7 +69,7 @@ public class Login implements Serializable {
     public Login(Integer id, String usuario, String pass) {
         this.id = id;
         this.usuario = usuario;
-        this.pass = pass;
+        this.password = pass;
     }
 
     public Integer getId() {
@@ -83,12 +88,12 @@ public class Login implements Serializable {
         this.usuario = usuario;
     }
 
-    public String getPass() {
-        return pass;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
