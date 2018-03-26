@@ -54,4 +54,10 @@ public class LoginController {
         return "registro?faces-redirect=true";
     }
 
+    public String logout() {
+        FacesContext context = getCurrentInstance();
+        context.getExternalContext().invalidateSession();
+        return "index?faces-redirect=true";
+    }
+
 }

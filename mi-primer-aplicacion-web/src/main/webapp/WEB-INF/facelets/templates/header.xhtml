@@ -21,6 +21,13 @@
                 #{userBean.usuario.usuario}
               </button>
             </div>
+            <div class ="my-2 my-lg-0">
+              <h:form id="exit">
+                <h:commandButton action="#{loginController.logout()}"
+                               value="Cerrar Sesión"
+                               class="btn btn-outline-success my-2 my-sm-0"/>
+              </h:form>
+            </div>
           </c:when>
           <c:otherwise>
             <h:form id="myForm" class="form-inline my-2 my-lg-0">
