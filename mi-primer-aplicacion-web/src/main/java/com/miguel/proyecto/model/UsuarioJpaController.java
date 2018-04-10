@@ -8,14 +8,14 @@ package com.miguel.proyecto.model;
 import com.miguel.proyecto.model.exceptions.IllegalOrphanException;
 import com.miguel.proyecto.model.exceptions.NonexistentEntityException;
 import java.io.Serializable;
-import javax.persistence.Query;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 /**
  *
@@ -236,6 +236,16 @@ public class UsuarioJpaController implements Serializable {
         } finally {
             em.close();
         }
+    }
+
+    public Usuario findUsuarioByLoginId(Integer loginId) {
+        EntityManager em = getEntityManager();
+        Query q = em.createNamedQuery("Usuario.findByLoginId")
+                .setParameter("loginId", loginId);
+        if (q.getResultList().isEmpty()) {
+            return null;
+        }
+        return (Usuario) q.getSingleResult();
     }
 
     public int getUsuarioCount() {

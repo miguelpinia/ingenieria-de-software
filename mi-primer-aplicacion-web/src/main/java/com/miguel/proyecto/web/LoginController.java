@@ -8,6 +8,8 @@ package com.miguel.proyecto.web;
 import com.miguel.proyecto.model.EntityProvider;
 import com.miguel.proyecto.model.Login;
 import com.miguel.proyecto.model.LoginJpaController;
+import com.miguel.proyecto.model.Usuario;
+import com.miguel.proyecto.model.UsuarioJpaController;
 import java.util.Locale;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -26,12 +28,14 @@ public class LoginController {
 
     private final EntityManagerFactory emf;
     private final LoginJpaController jpaController;
+    private final UsuarioJpaController usuarioJpaController;
     private UsuarioBean usuario;
 
     public LoginController() {
         FacesContext.getCurrentInstance().getViewRoot().setLocale(new Locale("es-Mx"));
         emf = EntityProvider.provider();
         jpaController = new LoginJpaController(emf);
+        usuarioJpaController = new UsuarioJpaController(emf);
         usuario = new UsuarioBean();
     }
 
@@ -47,8 +51,10 @@ public class LoginController {
         Login l = jpaController.findLogin(usuario.getUsuario(), usuario.getContraseña());
         boolean logged = l != null;
         if (logged) {
+            Usuario u = usuarioJpaController.findUsuarioByLoginId(l.getId());
             FacesContext context = getCurrentInstance();
             context.getExternalContext().getSessionMap().put("usuario", l);
+            context.getExternalContext().getSessionMap().put("datos", u);
             return "secured/inicio?faces-redirect=true";
         }
         return "registro?faces-redirect=true";
