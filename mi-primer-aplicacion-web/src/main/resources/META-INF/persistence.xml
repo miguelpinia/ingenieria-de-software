@@ -3,6 +3,9 @@
   <persistence-unit name="PersistenceUnit" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.miguel.proyecto.model.Login</class>
+    <class>com.miguel.proyecto.model.Usuario</class>
+    <class>com.miguel.proyecto.model.Respuesta</class>
+    <class>com.miguel.proyecto.model.Pregunta</class>
     <exclude-unlisted-classes>True</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/ejemplo"/>
