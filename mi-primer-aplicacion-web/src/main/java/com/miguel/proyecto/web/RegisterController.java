@@ -15,13 +15,13 @@ import javax.faces.context.FacesContext;
 @RequestScoped
 public class RegisterController {
 
-private Usuario user = new Usuario();
+private UsuarioBean user = new UsuarioBean();
 
-    public Usuario getUser() {
+    public UsuarioBean getUser() {
         return user;
     }
 
-    public void setUser(Usuario user) {
+    public void setUser(UsuarioBean user) {
         this.user = user;
     }
 
