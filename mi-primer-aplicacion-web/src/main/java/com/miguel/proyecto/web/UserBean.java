@@ -47,7 +47,10 @@ public class UserBean {
 
     public StreamedContent getMiFoto() {
         Usuario u = ujpa.findUsuarioByLoginId(getUsuario().getId());
-        return new ByteArrayContent(u.getFotografia());
+        if (u.getFotografia() != null) {
+            return new ByteArrayContent(u.getFotografia());
+        }
+        return null;
     }
 
 }
