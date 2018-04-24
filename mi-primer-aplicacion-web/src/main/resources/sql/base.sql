@@ -57,6 +57,7 @@ create table public.usuario (
   login_id int not null references login.login(id),
   nombre text not null,
   correo text not null,
+  fotografia bytea,
   constraint correo_unico unique(correo),
   constraint email_valido check (correo ~* '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$')
 );
@@ -86,4 +87,5 @@ create table public.respuesta (
 insert into public.respuesta (usuario_id, pregunta_id, contenido) values (1, 1, 'Respuesta 1'),
                                                                          (1, 1, 'Respuesta 2'),
                                                                          (1, 2, 'Respuesta 1 pregunta 2');
+
 commit;
