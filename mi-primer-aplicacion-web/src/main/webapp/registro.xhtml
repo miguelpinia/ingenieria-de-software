@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
   <h:head>
     <title>Ejemplo de JavaServer Faces</title>
   </h:head>
@@ -10,7 +11,7 @@
 
     <h1>Formulario de registro</h1> <br/>
 
-    <h:form id="myForm">
+    <h:form id="myForm" enctype="multipart/form-data">
       <table>
         <tr>
           <td><p:messages id="messages" autoUpdate="true" closable="true" /></td>
@@ -18,20 +19,40 @@
       </table>
       <table>
         <tr>
-          <td>Nombre de usuario</td>
-          <td><p:inputText value="#{registerController.user.usuario}" required="true" id="Username" size="10"/></td>
+          <td>Usuario</td>
+          <td><p:inputText value="#{registerController.usuario}" required="true" id="Username" size="10"/></td>
+        </tr>
+        <tr>
+          <td>Nombre</td>
+          <td><p:inputText value="#{registerController.nombre}" required="true" id="Name" size="10"/></td>
+        </tr>
+        <tr>
+          <td>Correo</td>
+          <td>
+            <p:inputText value="#{registerController.correo}" required="true" id="email" size="10"
+                         validatorMessage="El correo no es valido">
+              <f:validateRegex pattern="[\w\.-_]*[a-zA-Z0-9_]@ciencias\.unam\.mx" />
+              <p:ajax update="emailMsg" event="keyup" />
+            </p:inputText>
+            <p:message for="email" id="emailMsg"/>
+          </td>
         </tr>
         <tr>
           <td>Contraseña</td>
-          <td><p:password value="#{registerController.user.contraseña}" required="true" feedback="true" id="Password"/></td>
+          <td><p:password value="#{registerController.contraseña}" required="true" feedback="true" id="Password"/></td>
         </tr>
         <tr>
           <td>Confirmar Contraseña</td>
-          <td><p:password value="#{registerController.user. confirmacionContraseña}" required="true" feedback="true" id="ConfirmPassword"/></td>
+          <td><p:password value="#{registerController.confirmacion}" required="true" feedback="true" id="ConfirmPassword"/></td>
+        </tr>
+        <tr>
+          <td>Fotografía</td>
+          <td><p:fileUpload value="#{registerController.fotografia}" mode="simple" skinSimple="true"
+                            fileUploadListener="#{registerController.fileUploadListener}"/></td>
         </tr>
         <tr>
           <td colspan="2" align="center">
-            <p:commandButton action="#{registerController.addUser}" value="Registrar"/>
+            <p:commandButton action="#{registerController.addUser}" value="Registrar" ajax="false"/>
             <p:commandButton value="Reset" update="myForm" process="@this"  >
               <p:resetInput target="myForm" />
             </p:commandButton>
