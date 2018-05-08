@@ -16,7 +16,8 @@
         <c:choose>
           <c:when test="#{userBean.logged}">
             <div class="my-2 my-lg-0">
-              <button class="btn btn-primary">
+              <p:graphicImage value="#{userBean.miFoto}" width="48" height="48"/>
+              <button class="btn btn-primary" style="height:48px;">
                 <i class="fa fa-sign-in" aria-hidden="true"></i>
                 #{userBean.usuario.usuario}
               </button>
@@ -25,7 +26,8 @@
               <h:form id="exit">
                 <h:commandButton action="#{loginController.logout()}"
                                value="Cerrar Sesión"
-                               class="btn btn-outline-success my-2 my-sm-0"/>
+                               class="btn btn-outline-success my-2 my-sm-0"
+                               style="height:48px;"/>
               </h:form>
             </div>
           </c:when>

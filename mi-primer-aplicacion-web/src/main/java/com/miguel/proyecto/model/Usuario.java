@@ -14,6 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -53,6 +54,8 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @Column(nullable = false, length = 2147483647)
     private String correo;
+    @Lob
+    private byte[] fotografia;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioId")
     private List<Respuesta> respuestaList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioId")
@@ -102,6 +105,14 @@ public class Usuario implements Serializable {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public byte[] getFotografia() {
+        return fotografia;
+    }
+
+    public void setFotografia(byte[] fotografia) {
+        this.fotografia = fotografia;
     }
 
     @XmlTransient
