@@ -19,3 +19,4 @@ Software.
 * Prácticas
 
 - [[file:practicas/1/practica-1.pdf][Práctica 1]]
+- [[file:practicas/2/practica-2.pdf][Práctica 2]]
