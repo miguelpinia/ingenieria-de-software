@@ -11,12 +11,13 @@ Software.
 
 * Presentaciones
 
-- [[file:clase-1/presentacion.pdf][Introducción]]
-- [[file:clase-2/maven.pdf][Maven]]
-- [[file:clase-3/presentacion.pdf][Git]]
-- [[file:clase-4/presentacion.pdf][Java Server Faces]]
+- [[file:presentaciones/presentacion-1.pdf][Introducción]]
+
 
 * Prácticas
 
-- [[file:practicas/1/practica-1.pdf][Práctica 1]]
-- [[file:practicas/2/practica-2.pdf][Práctica 2]]
+* Material adicional
+
+- [[file:material-adicional/JSF-tutorial.pdf][JSF Tutorial]]
+- [[file:material-adicional/PrimeFaces%20Cookbook,%202nd%20Edition.pdf][Primefaces Cookbook]]
+- [[file:material-adicional/mvnref-pdf.pdf][Referencia de Maven]]
