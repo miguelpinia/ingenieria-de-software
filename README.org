@@ -6,8 +6,10 @@ Repositorio con material de apoyo para el laboratorio del curso de ingeniería d
 Software.
 
 - Profesora :: [[mailto:hanna.oktaba@ciencias.unam.mx][Hanna Oktaba]]
-- Ayudante :: Pablo Gerardo Gonzalez Lopez, Diana Giselle Hidalgo Lopez
+- Ayudante :: [[pablog@ciencias.unam.mx][Pablo Gerardo Gonzalez Lopez]], [[giss_hl@ciencias.unam.mx][Diana Giselle Hidalgo Lopez]]
 - Ayudante de laboratorio :: [[mailto:miguel_pinia@ciencias.unam.mx][Miguel Angel Piña Avelino]]
+
+- Sitio :: https://sites.google.com/ciencias.unam.mx/ingeniera-de-software-2019-1/
 
 * Presentaciones
 
