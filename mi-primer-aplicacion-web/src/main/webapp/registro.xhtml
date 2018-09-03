@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+  <h:head>
+    <title>Ejemplo de JavaServer Faces</title>
+  </h:head>
+  <h:body>
+
+    <h1>Formulario de registro</h1> <br/>
+
+    <h:form id="myForm">
+      <table>
+        <tr>
+          <td><p:messages id="messages" autoUpdate="true" closable="true" /></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td>Nombre de usuario</td>
+          <td><p:inputText value="#{registerController.user.usuario}" required="true" id="Username" size="10"/></td>
+        </tr>
+        <tr>
+          <td>Contraseña</td>
+          <td><p:password value="#{registerController.user.contraseña}" required="true" feedback="true" id="Password"/></td>
+        </tr>
+        <tr>
+          <td>Confirmar Contraseña</td>
+          <td><p:password value="#{registerController.user. confirmacionContraseña}" required="true" feedback="true" id="ConfirmPassword"/></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <p:commandButton action="#{registerController.addUser}" value="Registrar"/>
+            <p:commandButton value="Reset" update="myForm" process="@this"  >
+              <p:resetInput target="myForm" />
+            </p:commandButton>
+          </td>
+        </tr>
+      </table>
+    </h:form>
+  </h:body>
+</html>
