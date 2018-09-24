@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+  <h:head>
+    <title>Ejemplo de JavaServer Faces</title>
+  </h:head>
+  <h:body>
+
+    <h1>Registro de alumnos</h1> <br/>
+
+    <h:form id="myForm">
+      <table>
+        <tr>
+          <td><p:messages id="messages" autoUpdate="true" closable="true" /></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td>Nombre</td>
+          <td><p:inputText value="#{alumnoController.alumno.nombre}" required="true" id="Username" size="10"/></td>
+        </tr>
+        <tr>
+          <td>Apellido</td>
+          <td><p:inputText value="#{alumnoController.alumno.apellido1}" required="true" id="Password"/></td>
+        </tr>
+        <tr>
+          <td>Correo</td>
+          <td><p:inputText value="#{alumnoController.alumno.correo}" required="true" id="ConfirmPassword"/></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+              <p:commandButton action="#{alumnoController.addAlumno()}" value="Registrar"/>
+          </td>
+        </tr>
+      </table>
+    </h:form>
+  </h:body>
+</html>
